@@ -24,3 +24,4 @@
 /build/classes/java/main/br/com/teste/review/repository/ReviewRepository.class
 /build/tmp/compileJava/compileTransaction/stash-dir/ReviewRepository.class.uniqueId1
 /.gradle/8.13/checksums/sha1-checksums.bin
+/.gitignore
