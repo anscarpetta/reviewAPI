@@ -2,17 +2,19 @@ package br.com.teste.review.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-
-@Document(collection = "review")
+@Document(collection = "reviews")
 public class Review {
 
   @Id
-  private String idReview;
+  private String id;
+
+  private String sistemaId;
   private String setor;
   private Number nota;
   private String descricao;
 
-  public Review(String setor, Number nota, String descricao) {
+  public Review(String sistemaId, String setor, Number nota, String descricao) {
+    this.sistemaId = sistemaId;
     this.setor = setor;
     this.nota = nota;
     this.descricao = descricao;
@@ -21,12 +23,20 @@ public class Review {
   public Review() {
   }
 
-  public String getIdReview() {
-    return idReview;
+  public String getId() {
+    return id;
   }
 
-  public void setIdReview(String idReview) {
-    this.idReview = idReview;
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getSistemaId() {
+    return sistemaId;
+  }
+
+  public void setSistemaId(String sistemaId) {
+    this.sistemaId = sistemaId;
   }
 
   public String getSetor() {

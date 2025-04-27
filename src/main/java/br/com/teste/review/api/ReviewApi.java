@@ -28,7 +28,7 @@ public class ReviewApi {
           Pageable pageable
   ) {
     
-    Page<Review> page = !setor.isEmpty() ?reviewRepository.findBySetor(setor, pageable): reviewRepository.findAll(pageable);
+    Page<Review> page = setor != null ?reviewRepository.findBySetor(setor, pageable): reviewRepository.findAll(pageable);
 
     Map<String, Object> resposta = new HashMap<>();
     resposta.put("reviews", page.getContent());
@@ -48,5 +48,11 @@ public class ReviewApi {
   @PostMapping("cliente/review")
   public Review criarReview(@RequestBody Review review){
      return reviewRepository.save(review);
+  }
+
+  @DeleteMapping("/deletatudo")
+  public String deletaTudo(){
+    reviewRepository.deleteAll();
+    return "Deletou tudo";
   }
 }
